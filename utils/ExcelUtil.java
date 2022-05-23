@@ -780,4 +780,13 @@ public class ExcelUtil {
         }
     }
 
+    public static String generateTimestampNo() {
+        String tradeNo = "";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+        tradeNo += sdf.format(new Date());
+        Random rand = new Random(Thread.currentThread().getId() ^ System.nanoTime());
+        tradeNo += new DecimalFormat("0000").format(rand.nextInt(10000));
+        return tradeNo;
+    }
+    
 }
